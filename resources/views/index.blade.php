@@ -37,7 +37,7 @@
 		@endforeach
 	</table>
     <ul class="pagination" style="margin:20px 0">
-        {{ $pegawai->links() }}
+        {{ $pegawai->links('pagination::bootstrap-5') }}
     </ul>
 	<a href="/pegawaitambah" class="btn btn-primary">Tambah Pegawai Baru</a>
 </center>

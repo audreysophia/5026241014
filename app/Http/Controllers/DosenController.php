@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-//package kuliah.pert3
 
 use Illuminate\Http\Request;
 

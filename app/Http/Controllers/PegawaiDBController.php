@@ -10,10 +10,8 @@ class PegawaiDBController extends Controller
 {
 	public function index()
 	{
-
     	// mengambil data dari table pegawai
 		// $pegawai = DB::table('pegawai')->get(); //jika tidak pakai paginate
-
         $pegawai = DB::table('pegawai')->paginate(10);
 
     	// mengirim data pegawai ke view index
@@ -36,7 +34,7 @@ class PegawaiDBController extends Controller
 
 	}
 
-    // method untuk menampilkan view form tambah pegawai
+    	// method untuk menampilkan view form tambah pegawai
 	public function tambah()
 	{
 
@@ -94,5 +92,3 @@ class PegawaiDBController extends Controller
 		return redirect('/pegawai');
 	}
 }
-
-

@@ -5,6 +5,8 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\NilaiKuliahDBController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,12 +56,24 @@ Route::get('/blog/kontak', [BlogController::class, '@kontak']);
 
 //crud tabel pegawai
 Route::get('/pegawai', [PegawaiDBController::class, 'index']);
-
-//route CRUD
-Route::get('/pegawai', [PegawaiDBController::class,'index']);
-Route::get('/pegawaitambah', [PegawaiDBController::class,'tambah']);
-Route::post('/pegawaistore', [PegawaiDBController::class,'store']);
-Route::get('/pegawaiedit/{id}', [PegawaiDBController::class,'edit']);
-Route::post('/pegawaiupdate', [PegawaiDBController::class,'update']);
-Route::get('/pegawaihapus/{id}', [PegawaiDBController::class,'hapus']);
+Route::get('/pegawaitambah', [PegawaiDBController::class, 'tambah']);
+Route::post('/pegawaistore', [PegawaiDBController::class, 'store']);
+Route::get('/pegawaiedit/{id}', [PegawaiDBController::class, 'edit']);
+Route::post('/pegawaiupdate', [PegawaiDBController::class, 'update']);
+Route::get('/pegawaihapus/{id}', [PegawaiDBController::class, 'hapus']);
 Route::get('/pegawaicari', [PegawaiDBController::class, 'cari']);
+
+
+//route CRUD siswa
+Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
+Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
+Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
+Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
+Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+
+//route CRUD nilaikuliah
+Route::get('/nilaikuliah', [NilaiKuliahDBController::class, 'index']);
+Route::get('/nilaikuliah/tambah', [NilaiKuliahDBController::class, 'tambah']);
+Route::post('/nilaikuliah/store', [NilaiKuliahDBController::class, 'store']);
+Route::get('/nilaikuliah/cari', [NilaiKuliahDBController::class, 'cari']);
