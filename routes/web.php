@@ -6,7 +6,9 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\SepedaDBController;
 use App\Http\Controllers\NilaiKuliahDBController;
+use App\Http\Controllers\KeranjangBelanjaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -77,3 +79,19 @@ Route::get('/nilaikuliah', [NilaiKuliahDBController::class, 'index']);
 Route::get('/nilaikuliah/tambah', [NilaiKuliahDBController::class, 'tambah']);
 Route::post('/nilaikuliah/store', [NilaiKuliahDBController::class, 'store']);
 Route::get('/nilaikuliah/cari', [NilaiKuliahDBController::class, 'cari']);
+
+//route CRUD keranjangbelanja
+Route::get('/keranjangbelanja', [KeranjangBelanjaController::class, 'index']);
+Route::get('/keranjangbelanja/tambah', [KeranjangBelanjaController::class, 'tambah']);
+Route::post('/keranjangbelanja/store', [KeranjangBelanjaController::class, 'store']);
+Route::get('/keranjangbelanja/cari', [KeranjangBelanjaController::class, 'cari']);
+
+//route CRUD sepeda
+Route::get('/sepeda', [SepedaDBController::class, 'index']);
+Route::get('/sepeda/tambah', [SepedaDBController::class, 'tambah']);
+Route::post('/sepeda/store', [SepedaDBController::class, 'store']);
+Route::get('/sepeda/edit/{kodesepeda}', [SepedaDBController::class, 'edit']);
+Route::post('/sepeda/update', [SepedaDBController::class, 'update']);
+Route::get('/sepeda/hapus/{kodesepeda}', [SepedaDBController::class, 'hapus']);
+Route::get('/sepeda/cari', [SepedaDBController::class, 'cari']);
+
