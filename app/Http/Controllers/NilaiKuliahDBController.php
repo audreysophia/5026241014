@@ -11,7 +11,7 @@ class NilaiKuliahDBController extends Controller
     {
         $nilaikuliah = DB::table('nilaikuliah')->get();
 
-        return view('nilaikuliah', [
+        return view('nilaikuliah.index', [
             'nilaikuliah' => $nilaikuliah
         ]);
     }
@@ -24,14 +24,14 @@ class NilaiKuliahDBController extends Controller
     ->where('NRP', 'like', "%" . $cari . "%")
     ->get();
 
-        return view('nilaikuliah', [
+        return view('nilaikuliah.index', [
             'nilaikuliah' => $nilaikuliah
         ]);
     }
 
     public function tambah()
     {
-        return view('tambahnilaikuliah');
+        return view('nilaikuliah.create');
     }
 
     public function store(Request $request)

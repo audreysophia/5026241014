@@ -11,7 +11,7 @@ class KeranjangBelanjaController extends Controller
     {
         $keranjangbelanja = DB::table('keranjangbelanja')->get();
 
-        return view('keranjangbelanja', [
+        return view('keranjangbelanja.index', [
             'keranjangbelanja' => $keranjangbelanja
         ]);
     }
@@ -24,15 +24,24 @@ class KeranjangBelanjaController extends Controller
     ->where('kodebarang', 'like', "%" . $cari . "%")
     ->get();
 
-        return view('keranjangbelanja', [
+        return view('keranjangbelanja.index', [
             'keranjangbelanja' => $keranjangbelanja
         ]);
     }
 
     public function tambah()
     {
-        return view('tambahkeranjangbelanja');
+        return view('keranjangbelanja.create');
     }
+
+    public function hapus($kodebarang)
+	{
+
+		DB::table('keranjangbelanja')->where('kodebarang',$kodebarang)->delete();
+
+
+		return redirect('/keranjangbelanja');
+	}
 
     public function store(Request $request)
     {

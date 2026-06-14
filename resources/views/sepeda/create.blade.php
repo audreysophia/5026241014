@@ -33,7 +33,7 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Tersedia</label>
                     <div class="col-sm-10">
-                        <input type="number" name="tersedia" class="form-control" required>
+                        <input type="text" name="tersedia" class="form-control" required>
                     </div>
                 </div>
 

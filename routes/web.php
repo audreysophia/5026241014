@@ -82,9 +82,10 @@ Route::get('/nilaikuliah/cari', [NilaiKuliahDBController::class, 'cari']);
 
 //route CRUD keranjangbelanja
 Route::get('/keranjangbelanja', [KeranjangBelanjaController::class, 'index']);
-Route::get('/keranjangbelanja/tambah', [KeranjangBelanjaController::class, 'tambah']);
+Route::get('/keranjangbelanja/tambah/{kodebarang}', [KeranjangBelanjaController::class, 'tambah']);
 Route::post('/keranjangbelanja/store', [KeranjangBelanjaController::class, 'store']);
 Route::get('/keranjangbelanja/cari', [KeranjangBelanjaController::class, 'cari']);
+Route::get('/keranjangbelanja/hapus/{kodebarang}', [KeranjangBelanjaController::class, 'hapus']);
 
 //route CRUD sepeda
 Route::get('/sepeda', [SepedaDBController::class, 'index']);

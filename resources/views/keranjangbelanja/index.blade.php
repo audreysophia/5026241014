@@ -24,28 +24,21 @@
                     <td>{{ $k->ID }}</td>
                     <td>{{ $k->KODEBARANG }}</td>
                     <td>{{ $k->JUMLAH }}</td>
-                    <td>{{ $k->HARGA }}</td>
+                    <td>{{ number_format($k->HARGA, 0, ',', '.') }}</td>
 
                     <td>
-                        {{ $k->JUMLAH * $k->HARGA }}
+                        {{ number_format($k->JUMLAH * $k->HARGA, 0, ',', '.') }}
                     </td>
 
                     <td>
-				<a href="/keranjangbeli/{{ $k->KODEBARANG }}" class="btn btn-warning">Beli</a>
-				|
-				<a href="/keranjangbatal/{{ $k->KODEBARANG }}" class ="btn btn-danger">Batal</a>
-			</td>
+                        <a href="/keranjangbelanja/tambah/{{ $k->KODEBARANG }}" class="btn btn-warning">Beli</a>
+                        |
+                        <a href="/keranjangbelanja/hapus/{{ $k->KODEBARANG }}" class ="btn btn-danger">Batal</a>
+                    </td>
                 </tr>
             @endforeach
 
         </table>
-
-        <a href="/keranjangbelanja/tambah" class="btn btn-primary">
-            + Tambah Belanja
-        </a>
-
-
-
     </center>
 
 @endsection

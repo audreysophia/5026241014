@@ -12,7 +12,7 @@ class SepedaDBController extends Controller
 	{
         $sepeda = DB::table('sepeda')->paginate(10);
 
-		return view('sepeda',['sepeda' => $sepeda]);
+		return view('sepeda.index',['sepeda' => $sepeda]);
 
 	}
 
@@ -27,27 +27,27 @@ class SepedaDBController extends Controller
 		->paginate();
 
 
-		return view('sepeda',['sepeda' => $sepeda]);
+		return view('sepeda.index',['sepeda' => $sepeda]);
 
 	}
 
-    	// method untuk menampilkan view form tambah pegawai
+    	// method untuk menampilkan view form tambah sepeda
 	public function tambah()
 	{
-		return view('tambahsepeda');
+		return view('sepeda.create');
 
 	}
 
-	// method untuk insert data ke table pegawai
+	// method untuk insert data ke table sepeda
 	public function store(Request $request)
 	{
-		// insert data ke table pegawai
+		// insert data ke table sepeda
 		DB::table('sepeda')->insert([
 			'merksepeda' => $request->merksepeda,
 			'stocksepeda' => $request->stocksepeda,
 			'tersedia' => $request->tersedia,
 		]);
-		// alihkan halaman ke halaman pegawai
+		// alihkan halaman ke halaman sepeda
 		return redirect('/sepeda');
 
 	}
@@ -57,7 +57,7 @@ class SepedaDBController extends Controller
 	{
 
 		$sepeda = DB::table('sepeda')->where('kodesepeda',$kodesepeda)->get();
-		return view('editsepeda',['sepeda' => $sepeda]);
+		return view('sepeda.edit',['sepeda' => $sepeda]);
 
 	}
 
