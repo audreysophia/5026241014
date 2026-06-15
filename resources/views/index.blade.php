@@ -29,7 +29,7 @@
 			<td>{{ $p->pegawai_umur }}</td>
 			<td>{{ $p->pegawai_alamat }}</td>
 			<td>
-				<a href="/pegawaiedit/{{ $p->pegawai_id }}" class="btn btn-warning">Edit</a>
+
 				|
 				<a href="/pegawaihapus/{{ $p->pegawai_id }}" class ="btn btn-danger">Hapus</a>
 			</td>
@@ -42,3 +42,4 @@
 	<a href="/pegawaitambah" class="btn btn-primary">Tambah Pegawai Baru</a>
 </center>
 @endsection
+<a href="/pegawaiedit/{{ $p->pegawai_id }}" class="btn btn-warning">Edit</a>

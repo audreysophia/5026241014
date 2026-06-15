@@ -9,6 +9,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SepedaDBController;
 use App\Http\Controllers\NilaiKuliahDBController;
 use App\Http\Controllers\KeranjangBelanjaController;
+use App\Http\Controllers\NilaiPesertaDBController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -96,3 +97,9 @@ Route::post('/sepeda/update', [SepedaDBController::class, 'update']);
 Route::get('/sepeda/hapus/{kodesepeda}', [SepedaDBController::class, 'hapus']);
 Route::get('/sepeda/cari', [SepedaDBController::class, 'cari']);
 
+
+//route CRUD nilai_peserta
+Route::get('/eas', [NilaiPesertaDBController::class, 'index']);
+Route::get('/eas/tambah', [NilaiPesertaDBController::class, 'tambah']);
+Route::post('/eas/store', [NilaiPesertaDBController::class, 'store']);
+Route::post('/eas/update', [NilaiPesertaDBController::class, 'update']);
